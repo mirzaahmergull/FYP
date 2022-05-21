@@ -1,15 +1,9 @@
-import logo from './heart.svg';
-import './App.css';
+import './static/styles/App.css';
 import NavBar from './Navbar';
-import Component2 from './component2';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import CardFlip from './component3'
-import React, { Component }  from 'react';
-import Slides from './component4'
-import C5 from './component5';
+import React from 'react';
 import Footer1 from './footer1';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import Venue from './venue.js';
 import Home from './home.js';
 import AboutUs from './aboutus.js';
 import ContactUs from './contactus.js';
