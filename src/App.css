@@ -1,0 +1,109 @@
+.App {
+  text-align: center;
+}
+
+.photo{
+  width: 2000px;
+  height: 500px;
+  opacity: 65%;
+}
+
+.mid-text{
+  size: 40px;
+  color:black;
+}
+
+.wedding{
+  size: 500px;
+  color: rgb(54, 114, 150);
+  font-family: fantasy;
+}
+
+.text1{
+  size: 500px
+}
+
+.cardimg{
+  width:100%;
+  height:100%;
+}
+
+.cardback{
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#1e5799+0,4ec7e5+50,7db9e8+100 */
+background: #1e5799; /* Old browsers */
+background: -moz-linear-gradient(45deg,  #1e5799 0%, #4ec7e5 50%, #7db9e8 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(45deg,  #1e5799 0%,#4ec7e5 50%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(45deg,  #1e5799 0%,#4ec7e5 50%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
+
+.cardimg2{
+  width:100%;
+  height:100%;
+}
+
+.names{
+  color:darkgray;
+}
+
+.setfont{
+  font-family: 'Brush Script MT', cursive;
+  font-size: 170%;
+  color:aliceblue;
+}
+
+.setimgsize1{
+  width: 400px;
+  height: 300px;
+}
+
+.textalign{
+  align-content: flex-start;
+  text-align: left;
+}
+
+.arrow {
+    border-right:2px solid rgb(162, 212, 242);
+    border-bottom:2px solid rgb(162, 212, 242);
+    margin-bottom: 40px;
+   
+    margin-top:40px;
+}
+
+.footerbg{
+    background-image: "https://www.driftstories.com/wp-content/uploads/2020/12/word-image-2.jpeg";
+    opacity: 70;
+
+}
+
+.menu-item {
+  padding: 0 40px;
+  margin: 5px 10px;
+  user-select: none;
+  cursor: pointer;
+  border: none;
+}
+.menu-item-wrapper.active {
+  border: 1px blue solid;
+}
+.menu-item.active {
+  border: 1px green solid;
+}
+
+.scroll-menu-arrow {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.bordercf{
+  border: 2px gray solid;
+}
+
+.checkalign{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
