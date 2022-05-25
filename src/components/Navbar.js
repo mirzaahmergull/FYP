@@ -4,6 +4,7 @@ import React from "react";
 import "../static/styles/Navbar.css";
 import searchlogo from "../static/svgs/search.svg";
 import personlogo from "../static/svgs/person-fill.svg";
+import logo from "../static/imgs/logo.png";
 import { Link } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
@@ -13,7 +14,7 @@ function MyVerticallyCenteredModal(props) {
   return (
     <Modal
       {...props}
-      size="lg"
+      size="md"
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
@@ -26,7 +27,6 @@ function MyVerticallyCenteredModal(props) {
             <></> &nbsp;
             <></> &nbsp;
             <Form className="justify-content-md-center">
-              <Form.Label style={{ fontSize: "50px" }}>Login</Form.Label>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Control
                   style={{ width: "350px" }}
@@ -43,7 +43,7 @@ function MyVerticallyCenteredModal(props) {
               </Form.Group>
               <Link to="/">
                 <Button
-                  style={{ width: "250px" }}
+                  style={{ width: "150px", marginLeft:"6.5em" }}
                   variant="primary"
                   type="submit"
                 >
@@ -52,7 +52,7 @@ function MyVerticallyCenteredModal(props) {
               </Link>
               <></> &nbsp;
               <></> &nbsp;
-              <p>
+              <p style={{marginTop:"0.5em" }}>
                 Not a member? <Link to="/SignUp">Signup</Link>
               </p>
             </Form>
@@ -60,9 +60,6 @@ function MyVerticallyCenteredModal(props) {
           <></> &nbsp;<></> &nbsp;
         </div>
       </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
     </Modal>
   );
 }
@@ -76,9 +73,9 @@ const NavBar = () => {
           <Link to="/" style={{ textDecoration: "none", color: "black" }}>
             <img
               alt=""
-              src="https://shadiwelcome.com/uploads/home_image/1487234029.png"
-              width="180"
-              height="25"
+              src={logo}
+              width="80"
+              height="50"
               className="d-inline-block align-top"
             />
           </Link>{" "}
@@ -86,17 +83,18 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="/All">VENDORS</Nav.Link>
-            <Nav.Link href="#home">PHOTOS</Nav.Link>
-            <Nav.Link href="#home">
+          <Nav.Link href="/">
               <img
-                alt=""
-                src="https://shadiwelcome.com//img/shadisale.png"
-                width="100"
+                alt="logo"
+                src={searchlogo}
+                width="30"
                 height="30"
                 className="d-inline-block align-top"
               />{" "}
             </Nav.Link>
+            <Nav.Link href="/All">VENDORS</Nav.Link>
+            <Nav.Link href="#home">PHOTOS</Nav.Link>
+            
             <Nav.Link onClick={() => setModalShow(true)}>
               <img
                 alt="logo"
@@ -111,15 +109,7 @@ const NavBar = () => {
               show={modalShow}
               onHide={() => setModalShow(false)}
             />
-            <Nav.Link href="/">
-              <img
-                alt="logo"
-                src={searchlogo}
-                width="30"
-                height="30"
-                className="d-inline-block align-top"
-              />{" "}
-            </Nav.Link>
+            
           </Nav>
         </Navbar.Collapse>
       </Container>

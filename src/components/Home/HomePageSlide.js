@@ -1,7 +1,5 @@
 import Carousel from "react-bootstrap/Carousel";
 import { Dropdown } from "react-bootstrap";
-import slogo from "../../static/svgs/chevron-compact-right.svg";
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import "../../static/styles/App.css";
@@ -50,35 +48,15 @@ const Component2 = () => {
                     </Dropdown.Item>
                     <Dropdown.Item href="/VendorVenue">Venue</Dropdown.Item>
 
-                    <Dropdown.Item href="/VendorJwellery">
-                      Jwellery
-                    </Dropdown.Item>
                     <Dropdown.Item href="/VendorCaterer">
                       Caterers
                     </Dropdown.Item>
-                    <Dropdown.Item href="/VendorCards">
-                      Cards & Invitations
-                    </Dropdown.Item>
-
-                    <Dropdown.Item href="/VendorEntertainment">
-                      Entertainment
-                    </Dropdown.Item>
+                    
                     <Dropdown.Item href="/VendorHoneymoon">
                       Honeymoon
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
-
-                <Button variant="primary" size="sm" active>
-                  Show Me
-                  <img
-                    alt="logo"
-                    src={slogo}
-                    width="30"
-                    height="30"
-                    className="d-inline-block align-top"
-                  />
-                </Button>
               </Row>
             </Container>
           </div>
@@ -119,35 +97,16 @@ const Component2 = () => {
                     </Dropdown.Item>
                     <Dropdown.Item href="/VendorVenue">Venue</Dropdown.Item>
 
-                    <Dropdown.Item href="/VendorJwellery">
-                      Jwellery
-                    </Dropdown.Item>
+                   
                     <Dropdown.Item href="/VendorCaterer">
                       Caterers
                     </Dropdown.Item>
-                    <Dropdown.Item href="/VendorCards">
-                      Cards & Invitations
-                    </Dropdown.Item>
-
-                    <Dropdown.Item href="/VendorEntertainment">
-                      Entertainment
-                    </Dropdown.Item>
+                    
                     <Dropdown.Item href="/VendorHoneymoon">
                       Honeymoon
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
-
-                <Button variant="primary" size="sm" active>
-                  Show Me
-                  <img
-                    alt="logo"
-                    src={slogo}
-                    width="30"
-                    height="30"
-                    className="d-inline-block align-top"
-                  />
-                </Button>
               </Row>
             </Container>
           </div>
@@ -187,35 +146,16 @@ const Component2 = () => {
                     </Dropdown.Item>
                     <Dropdown.Item href="/VendorVenue">Venue</Dropdown.Item>
 
-                    <Dropdown.Item href="/VendorJwellery">
-                      Jwellery
-                    </Dropdown.Item>
                     <Dropdown.Item href="/VendorCaterer">
                       Caterers
                     </Dropdown.Item>
-                    <Dropdown.Item href="/VendorCards">
-                      Cards & Invitations
-                    </Dropdown.Item>
-
-                    <Dropdown.Item href="/VendorEntertainment">
-                      Entertainment
-                    </Dropdown.Item>
+                    
                     <Dropdown.Item href="/VendorHoneymoon">
                       Honeymoon
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
 
-                <Button variant="primary" size="sm" active>
-                  Show Me
-                  <img
-                    alt="logo"
-                    src={slogo}
-                    width="30"
-                    height="30"
-                    className="d-inline-block align-top"
-                  />
-                </Button>
               </Row>
             </Container>
           </div>
@@ -255,35 +195,15 @@ const Component2 = () => {
                     </Dropdown.Item>
                     <Dropdown.Item href="/VendorVenue">Venue</Dropdown.Item>
 
-                    <Dropdown.Item href="/VendorJwellery">
-                      Jwellery
-                    </Dropdown.Item>
                     <Dropdown.Item href="/VendorCaterer">
                       Caterers
                     </Dropdown.Item>
-                    <Dropdown.Item href="/VendorCards">
-                      Cards & Invitations
-                    </Dropdown.Item>
-
-                    <Dropdown.Item href="/VendorEntertainment">
-                      Entertainment
-                    </Dropdown.Item>
+                   
                     <Dropdown.Item href="/VendorHoneymoon">
                       Honeymoon
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
-
-                <Button variant="primary" size="sm" active>
-                  Show Me
-                  <img
-                    alt="logo"
-                    src={slogo}
-                    width="30"
-                    height="30"
-                    className="d-inline-block align-top"
-                  />
-                </Button>
               </Row>
             </Container>
           </div>
@@ -323,35 +243,16 @@ const Component2 = () => {
                     </Dropdown.Item>
                     <Dropdown.Item href="/VendorVenue">Venue</Dropdown.Item>
 
-                    <Dropdown.Item href="/VendorJwellery">
-                      Jwellery
-                    </Dropdown.Item>
                     <Dropdown.Item href="/VendorCaterer">
                       Caterers
                     </Dropdown.Item>
-                    <Dropdown.Item href="/VendorCards">
-                      Cards & Invitations
-                    </Dropdown.Item>
-
-                    <Dropdown.Item href="/VendorEntertainment">
-                      Entertainment
-                    </Dropdown.Item>
+                    
                     <Dropdown.Item href="/VendorHoneymoon">
                       Honeymoon
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
 
-                <Button variant="primary" size="sm" active>
-                  Show Me
-                  <img
-                    alt="logo"
-                    src={slogo}
-                    width="30"
-                    height="30"
-                    className="d-inline-block align-top"
-                  />
-                </Button>
               </Row>
             </Container>
           </div>
@@ -391,35 +292,16 @@ const Component2 = () => {
                     </Dropdown.Item>
                     <Dropdown.Item href="/VendorVenue">Venue</Dropdown.Item>
 
-                    <Dropdown.Item href="/VendorJwellery">
-                      Jwellery
-                    </Dropdown.Item>
                     <Dropdown.Item href="/VendorCaterer">
                       Caterers
                     </Dropdown.Item>
-                    <Dropdown.Item href="/VendorCards">
-                      Cards & Invitations
-                    </Dropdown.Item>
-
-                    <Dropdown.Item href="/VendorEntertainment">
-                      Entertainment
-                    </Dropdown.Item>
+                    
                     <Dropdown.Item href="/VendorHoneymoon">
                       Honeymoon
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
 
-                <Button variant="primary" size="sm" active>
-                  Show Me
-                  <img
-                    alt="logo"
-                    src={slogo}
-                    width="30"
-                    height="30"
-                    className="d-inline-block align-top"
-                  />
-                </Button>
               </Row>
             </Container>
           </div>
@@ -458,36 +340,14 @@ const Component2 = () => {
                       Wedding Planners
                     </Dropdown.Item>
                     <Dropdown.Item href="/VendorVenue">Venue</Dropdown.Item>
-
-                    <Dropdown.Item href="/VendorJwellery">
-                      Jwellery
-                    </Dropdown.Item>
                     <Dropdown.Item href="/VendorCaterer">
                       Caterers
-                    </Dropdown.Item>
-                    <Dropdown.Item href="/VendorCards">
-                      Cards & Invitations
-                    </Dropdown.Item>
-
-                    <Dropdown.Item href="/VendorEntertainment">
-                      Entertainment
-                    </Dropdown.Item>
+                    </Dropdown.Item>                   
                     <Dropdown.Item href="/VendorHoneymoon">
                       Honeymoon
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
-
-                <Button variant="primary" size="sm" active>
-                  Show Me
-                  <img
-                    alt="logo"
-                    src={slogo}
-                    width="30"
-                    height="30"
-                    className="d-inline-block align-top"
-                  />
-                </Button>
               </Row>
             </Container>
           </div>

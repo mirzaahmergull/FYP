@@ -17,7 +17,6 @@ import VendorGroom from './MainVendors/SalonVendor.js';
 import VendorHoneymoon from './MainVendors/HoneymoonVendor.js';
 import Desc from './Description.js';
 import SignUp from './Signup.js';
-import Login from './Login.js';
 import SignUpVendor from './SignupVendor.js';
 import Vendors from './MainVendors/AllVendors.js';
 
@@ -43,7 +42,6 @@ function App() {
         <Route exact path="/IP1" element={<Desc/>} />
         <Route exact path="/SignUp" element={<SignUp/>} />
         <Route exact path="/SignUpVendor" element={<SignUpVendor/>} />
-        <Route exact path="/Login" element={<Login/>} />
         <Route exact path="/All" element={<Vendors/>} />
         </Routes>
         <Footer1/>

@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 
 const Footer1 = () => {
   return (
-    <div style={{ backgroundImage: `url(${background})` }}>
+    <div style={{ backgroundImage: `url(${background})`}}>
       <></> &nbsp;
       <></> &nbsp;
       <Container>
@@ -68,7 +68,7 @@ const Footer1 = () => {
                   href="mailto:sanaf1333@gmail.com"
                   style={{ textDecoration: "none", color: "black" }}
                 >
-                  info@shadiwelcome.com
+                  info@quboolhai.com
                 </a>
               </li>
               <></> &nbsp;

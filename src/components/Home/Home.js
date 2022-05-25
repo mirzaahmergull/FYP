@@ -1,10 +1,9 @@
-import logo from "../../static/svgs/heart.svg";
+import logo from "../../static/svgs/heart.svg"
 import "../../static/styles/App.css";
 import Component2 from "./HomePageSlide";
 import "bootstrap/dist/css/bootstrap.min.css";
 import CardFlip from "./HomePageCardFlip";
 import React from "react";
-import Slides from "./HomePageSlides";
 import C5 from "./HomePageBottom";
 
 const Home = () => {
@@ -40,36 +39,6 @@ const Home = () => {
       &nbsp;
       <></> &nbsp;
       <CardFlip />
-      <></> &nbsp;
-      <h1 style={{ color: "rgb(162, 212, 242)" }}>Browse Real Weddings</h1>
-      <h4 style={{ color: "rgb(149, 150, 150)", fontFamily: "Cursive" }}>
-        From quaint budget affairs, to glam black tie events- the most inspiring
-        real wedding stories from around the world
-      </h4>{" "}
-      &nbsp;
-      <div
-        style={{
-          borderTop: "2px solid #fff ",
-          marginLeft: 20,
-          marginRight: 20,
-          color: "rgb(149, 150, 150)",
-        }}
-      >
-        ______________________________________{" "}
-        <img
-          alt="logo"
-          src={logo}
-          width="30"
-          height="30"
-          className="d-inline-block align-top"
-          color="rgb(149, 150, 150)"
-        />{" "}
-        ______________________________________
-      </div>{" "}
-      &nbsp;
-      <></> &nbsp;
-      <Slides />
-      <></> &nbsp;
       <></> &nbsp;
       <></> &nbsp;
       <C5 />

@@ -4,7 +4,7 @@
 
 .photo{
   width: 2000px;
-  height: 500px;
+  height:min-content;
   opacity: 65%;
 }
 
@@ -70,13 +70,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
    
     margin-top:40px;
 }
-
-.footerbg{
-    background-image: "https://www.driftstories.com/wp-content/uploads/2020/12/word-image-2.jpeg";
-    opacity: 70;
-
-}
-
 .menu-item {
   padding: 0 40px;
   margin: 5px 10px;
@@ -105,5 +98,4 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
 }

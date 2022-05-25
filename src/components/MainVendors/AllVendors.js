@@ -180,28 +180,6 @@ const Vendors = () => {
         </div>
       </div>
 
-      <div style={{ marginTop: "50px", marginBottom: "50px" }}>
-        <h4>Cards & Invitations</h4>
-        <p style={{ color: "gray" }}>
-          ______________________________________________
-        </p>
-
-        <div>
-          <Row xs={1} md={4} className="g-4">
-            <Card style={{ border: "none" }}>
-              <Card.Img
-                style={{ width: "100%", height: "100%" }}
-                variant="top"
-                src="http://orientprinters.com/wp-content/uploads/2014/02/file-1-178x178.jpg"
-              />
-              <Card.Body style={{ backgroundColor: "rgb(162, 212, 242)" }}>
-                <Card.Title>Orient Printers</Card.Title>
-                <Card.Text>Islamabad</Card.Text>
-              </Card.Body>
-            </Card>
-          </Row>
-        </div>
-      </div>
 
       <div style={{ marginTop: "50px", marginBottom: "50px" }}>
         <h4>Honeymoon</h4>
@@ -264,62 +242,6 @@ const Vendors = () => {
                   <Card.Title>Bukhari Group</Card.Title>
                 </Link>
                 <Card.Text>Islamabad</Card.Text>
-              </Card.Body>
-            </Card>
-          </Row>
-        </div>
-      </div>
-
-      <div style={{ marginTop: "50px", marginBottom: "50px" }}>
-        <h4>Jewellery</h4>
-        <p style={{ color: "gray" }}>
-          ______________________________________________
-        </p>
-
-        <div>
-          <Row xs={1} md={4} className="g-4">
-            <Card style={{ border: "none" }}>
-              <Card.Img
-                style={{ width: "100%", height: "100%" }}
-                variant="top"
-                src="https://i.pinimg.com/640x/3d/45/4b/3d454ba7040c2227625a454c55783c5e.jpg"
-              />
-              <Card.Body style={{ backgroundColor: "rgb(162, 212, 242)" }}>
-                <Card.Title>Haji Yahya Ghulam Ghaus jew...</Card.Title>
-                <Card.Text>Karachi</Card.Text>
-              </Card.Body>
-            </Card>
-            <Card style={{ border: "none" }}>
-              <Card.Img
-                style={{ width: "100%", height: "100%" }}
-                variant="top"
-                src="https://i.pinimg.com/236x/fc/08/3d/fc083d65d71f8b14154379bce8ef9e5c.jpg"
-              />
-              <Card.Body style={{ backgroundColor: "rgb(162, 212, 242)" }}>
-                <Card.Title>Salman Bright Electoplating</Card.Title>
-                <Card.Text>Lahore</Card.Text>
-              </Card.Body>
-            </Card>
-            <Card style={{ border: "none" }}>
-              <Card.Img
-                style={{ width: "100%", height: "100%" }}
-                variant="top"
-                src="https://blog.bridals.pk/wp-content/uploads/2019/01/jaipur-1-min-1.jpg"
-              />
-              <Card.Body style={{ backgroundColor: "rgb(162, 212, 242)" }}>
-                <Card.Title>Khanz Jewellers</Card.Title>
-                <Card.Text>Lahore</Card.Text>
-              </Card.Body>
-            </Card>
-            <Card style={{ border: "none" }}>
-              <Card.Img
-                style={{ width: "100%", height: "100%" }}
-                variant="top"
-                src="https://i.pinimg.com/564x/42/db/9c/42db9c8f3d4c5fc792b4ae3954303541.jpg"
-              />
-              <Card.Body style={{ backgroundColor: "rgb(162, 212, 242)" }}>
-                <Card.Title>Hanif Jewellers</Card.Title>
-                <Card.Text>Karachi</Card.Text>
               </Card.Body>
             </Card>
           </Row>
