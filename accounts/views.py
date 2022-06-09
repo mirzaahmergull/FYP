@@ -3,19 +3,6 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 
 from .models import Profile, BusinessProfile
-from django.shortcuts import  render, redirect
-
-from django.contrib.auth.models import User
-from django.contrib import messages
-from django.contrib.auth.tokens import default_token_generator
-from django.contrib.auth.forms import AuthenticationForm, PasswordResetForm
-from django.contrib.auth import login,  authenticate,logout
-from django.core.mail import send_mail, BadHeaderError
-from django.http import HttpResponse
-from django.utils.http import urlsafe_base64_encode
-from django.template.loader import render_to_string
-from django.utils.encoding import force_bytes
-from django.db.models.query_utils import Q
 from .serializers import ProfileSerializer, BusinessProfileSerializer
 
 #Profile
