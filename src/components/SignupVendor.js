@@ -1,11 +1,43 @@
 import "../static/styles/App.css";
-import React from "react";
-import Form from "react-bootstrap/Form";
+
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import { Link } from "react-router-dom";
+import React from "react";
+import axios from "axios";
+import backendBusinessProfileURL from "./BackendInfo";
 
 const SignUpVendor = () => {
+  const [formValue, setFormValue] = React.useState(
+    {"fullname":'', 'password':'', 'email':'' }
+  )
+const handleSubmit = (event) => {
+  const SignUpFormData = new FormData();
+SignUpFormData.append("username", formValue.email)
+SignUpFormData.append("password", formValue.password)
+console.table(SignUpFormData)
+try {
+  // make axios post request
+  const response =  axios({
+    method: "post",
+    url:backendBusinessProfileURL,
+    data: SignUpFormData,
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+} catch(error) {
+  console.log(error)
+}
+}
+
+const handleChange = (event) => {
+  setFormValue({
+    ...formValue,
+    [event.target.name]: event.target.value
+  });
+}
+
+
   return (
     <div
       className="border  rounded-3 border border-2 justify-content-md-center"
@@ -21,7 +53,7 @@ const SignUpVendor = () => {
       <div className="checkalign">
         <></> &nbsp;
         <></> &nbsp;
-        <Form className="justify-content-md-center">
+        <Form className="justify-content-md-center" onSubmit={handleSubmit}>
           <Form.Label style={{ fontSize: "50px" }}>Signup</Form.Label>
           <Dropdown>
             <Dropdown.Toggle variant="primary" id="dropdown-basic">
@@ -94,7 +126,7 @@ const SignUpVendor = () => {
           <></> &nbsp;
           <h4>OR</h4>
           <Link to="/SignUp">
-            <Button style={{ width: "250px" }} variant="primary" type="submit">
+            <Button style={{ width: "250px" }} variant="primary" type="submit" onClick={handleSubmit}>
               Signup as user
             </Button>
           </Link>
