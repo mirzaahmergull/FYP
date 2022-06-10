@@ -1,145 +1,174 @@
-import "../static/styles/App.css";
+import "react-bootstrap";
+import "../static/styles/Navbar.css";
+
+import { Container, Nav, Navbar } from "react-bootstrap";
+import {backendBusinessProfileURL, backendProfileURL} from "./BackendInfo";
 
 import Button from "react-bootstrap/Button";
-import { Dropdown } from "react-bootstrap";
+// import { ConstructionRounded } from "@mui/icons-material";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
+import Modal from "react-bootstrap/Modal";
 import React from "react";
-import axios from "axios";
-import backendBusinessProfileURL from "./BackendInfo";
+import axios from 'axios';
+import logo from "../static/imgs/logo.png";
+import personlogo from "../static/svgs/person-fill.svg";
+import searchlogo from "../static/svgs/search.svg";
 
-const SignUpVendor = () => {
+// http://127.0.0.1:8000/login/
+
+function MyVerticallyCenteredModal(props) {
+
   const [formValue, setFormValue] = React.useState(
-    {"fullname":'', 'password':'', 'email':'' }
+    { 'email':'', 'password':''  }
   )
-const handleSubmit = async (event) => {
-  const SignUpFormData = new FormData();
-SignUpFormData.append("username", formValue.email)
-SignUpFormData.append("password", formValue.password)
-console.log(SignUpFormData)
-try {
-  // make axios post request
-  const response = await axios({
-    method: "post",
-    url:backendBusinessProfileURL,
-    data: SignUpFormData,
-    headers: { "Content-Type": "multipart/form-data" },
-  });
-} catch(error) {
-  console.log(error)
-}
-}
-
-const handleChange = (event) => {
-  setFormValue({
-    ...formValue,
-    [event.target.name]: event.target.value
-  });
-}
 
 
-  return (
-    <div
-      className="border  rounded-3 border border-2 justify-content-md-center"
-      style={{
-        borderWidth: "2",
-        borderColor: "gray",
-        marginLeft: "450px",
-        marginRight: "350px",
-        marginTop: "10px",
-        marginBottom: "10px",
-      }}
+  const handleChange = (event) => {
+    setFormValue({
+      ...formValue,
+      [event.target.name]: event.target.value
+    });
+  }
+
+  const handleSubmit = async (event) => {
+    const loginFormData = new FormData();
+  loginFormData.append("username", formValue.email)
+  loginFormData.append("password", formValue.password)
+
+
+
+  try {
+    // make axios post request
+    try{
+    const response = await axios({
+      method: "post",
+      url: backendProfileURL,
+      data: loginFormData,
+      headers: { "Content-Type": "multipart/form-data" },
+    });}
+    catch(error){
+      const response = await axios({
+        method: "post",
+        url: backendBusinessProfileURL,
+        data: loginFormData,
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+    }
+  } catch(error) {
+    console.log(error)
+  }
+
+  }
+
+ return (
+    <Modal
+      {...props}
+      size="md"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
     >
-      <div className="checkalign">
-        <></> &nbsp;
-        <></> &nbsp;
-        <Form className="justify-content-md-center" onSubmit={handleSubmit}>
-          <Form.Label style={{ fontSize: "50px" }}>Signup</Form.Label>
-          <Dropdown>
-            <Dropdown.Toggle variant="primary" id="dropdown-basic">
-              Select vendor type
-            </Dropdown.Toggle>
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">Login</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <div>
+          <div className="checkalign">
+            <></> &nbsp;
+            <></> &nbsp;
+            
+            <Form className="justify-content-md-center" onSubmit={handleSubmit}>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Control
+                  style={{ width: "350px" }}
+                  placeholder="Enter email"
+                  type="email"
+                  name="formemail"
+                />
+           
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Control
+                  style={{ width: "350px" }}
+                  type="password"
+                  placeholder="Enter Password"
+                  name="formpassword"
+                />
+              </Form.Group>
+              <Link to="/">
+                <Button
+                  style={{ width: "150px", marginLeft:"6.5em" }}
+                  variant="primary"
+                  type="submit"
+                >
+                  Login
+                </Button>
+              </Link>
+              <></> &nbsp;
+              <></> &nbsp;
+              <p style={{marginTop:"0.5em" }}>
+                Not a member? <Link to="/SignUp" onClick={handleSubmit}>Signup</Link>
+              </p>
+            </Form>
+          </div>
+          <></> &nbsp;<></> &nbsp;
+        </div>
+      </Modal.Body>
+    </Modal>
+  );
+}
 
-            <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">Photographers</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Bridal Makeup</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Groom Salons</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Wedding Planners</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Venue</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Cakes</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Jwellery</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Caterers</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">
-                Cards & Invitations
-              </Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Accessories</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Entertainment</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Honeymoon</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-          <></> &nbsp;
-          <></> &nbsp;
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control
-              style={{ width: "350px" }}
-              type="text"
-              placeholder="Business Name"
+const NavBar = () => {
+  const [modalShow, setModalShow] = React.useState(false);
+  return (
+    <Navbar className="color-nav" variant="light" expand="lg" sticky="top">
+      <Container>
+        <Navbar.Brand href="#home">
+          <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+            <img
+              alt=""
+              src={logo}
+              width="80"
+              height="50"
+              className="d-inline-block align-top"
             />
-          </Form.Group>
-          <Form.Group
-            className="mb-3 justify-content-md-center"
-            controlId="formBasicEmail"
-          >
-            <Form.Control
-              style={{ width: "350px", height: "100%" }}
-              type="name"
-              placeholder="Name"
+          </Link>{" "}
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+          <Nav.Link href="/">
+              <img
+                alt="logo"
+                src={searchlogo}
+                width="30"
+                height="30"
+                className="d-inline-block align-top"
+              />{" "}
+            </Nav.Link>
+            <Nav.Link href="/All">VENDORS</Nav.Link>
+            <Nav.Link href="#home">PHOTOS</Nav.Link>
+            
+            <Nav.Link onClick={() => setModalShow(true)}>
+              <img
+                alt="logo"
+                src={personlogo}
+                width="30"
+                height="30"
+                className="d-inline-block align-top"
+              />
+              LOGIN
+            </Nav.Link>
+            <MyVerticallyCenteredModal
+              show={modalShow}
+              onHide={() => setModalShow(false)}
             />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control
-              style={{ width: "350px" }}
-              type="email"
-              placeholder="Enter email"
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control
-              style={{ width: "350px" }}
-              type="password"
-              placeholder="Enter Password"
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control
-              style={{ width: "350px" }}
-              type="password"
-              placeholder="Confirm Password"
-            />
-          </Form.Group>
-          <Link to="/">
-            <Button style={{ width: "250px" }} variant="primary" type="submit">
-              Submit
-            </Button>
-          </Link>
-          <></> &nbsp;
-          <></> &nbsp;
-          <h4>OR</h4>
-          <Link to="/SignUp">
-            <Button style={{ width: "250px" }} variant="primary" type="submit" onClick={handleSubmit}>
-              Signup as user
-            </Button>
-          </Link>
-          <></> &nbsp;
-          <></> &nbsp;
-          <p>
-            Already a member? <Link to="/Login">Login</Link>
-          </p>
-        </Form>
-      </div>
-      <></> &nbsp;<></> &nbsp;
-    </div>
+            
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 
-export default SignUpVendor;
+export default NavBar;
