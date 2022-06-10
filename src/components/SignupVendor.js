@@ -12,14 +12,14 @@ const SignUpVendor = () => {
   const [formValue, setFormValue] = React.useState(
     {"fullname":'', 'password':'', 'email':'' }
   )
-const handleSubmit = (event) => {
+const handleSubmit = async (event) => {
   const SignUpFormData = new FormData();
 SignUpFormData.append("username", formValue.email)
 SignUpFormData.append("password", formValue.password)
-console.table(SignUpFormData)
+console.log(SignUpFormData)
 try {
   // make axios post request
-  const response =  axios({
+  const response = await axios({
     method: "post",
     url:backendBusinessProfileURL,
     data: SignUpFormData,
