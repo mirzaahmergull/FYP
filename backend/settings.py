@@ -94,12 +94,20 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 #         }
 # }
 # else:
-DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.sqlite3',
-                'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-            }
-        }
+try:
+        DATABASES = {
+                    'default': {
+                        'ENGINE': 'django.db.backends.sqlite3',
+                        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+                    }
+                }
+except:
+    DATABASES = {
+     'default': {
+           'ENGINE': 'djongo',
+           'NAME': 'myapp-djongo-db',
+       }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
