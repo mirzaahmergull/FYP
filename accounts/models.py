@@ -37,3 +37,23 @@ def update_Businessprofile_signal(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
     instance.profile.save()
+    
+    
+    
+def upload_to(instance, filename):
+    return 'images/{filename}'.format(filename=filename)
+
+
+class VendorImage(models.Model):
+
+    image_key = models.AutoField(primary_key=True)
+    image = models.ImageField(upload_to=upload_to, blank=True, null=True)
+    title = models.CharField(max_length=100, blank=False)
+    business_name = models.CharField(max_length=100, blank=False)
+    vendor_type = models.CharField(max_length=100, blank=False)
+    creation_date = models.DateTimeField(auto_now_add=True)
+    print("VENDOR IMAGE MODEL")
+
+    def __str__(self):
+        return f"Object business {self.business_name}, title {self.title} and vendor_type {self.vendor_type}"
+
