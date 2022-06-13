@@ -1,69 +1,160 @@
-import json
-from sre_constants import CATEGORY_LINEBREAK
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponse
-from django.contrib.auth.models import User
-from django.shortcuts import redirect
-# Create your views here.
-from django.views.generic import TemplateView
-from django.views.generic.base import View
-from .models import Vendor,Client
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from rest_framework import status
 
-class SignUp_view_vendor(View):
+from .models import Profile, BusinessProfile
+from .serializers import ProfileSerializer, BusinessProfileSerializer
 
-    def post(self, request, *args, **kwargs):
-        #save user data
-        name=request.POST["name"]
-        email=request.POST["email"]
-        password=request.POST["password"]
-        buisness_name=request.POST["business_name"]
-        vendor_type=request.POST["vendor_type"]
-        Vendor.save(name,email,password,buisness_name,vendor_type)
-        return HttpResponse("Vendor Signup Complete")
+#Profile
+@api_view (["GET","POST"])
+def register_profile_request(request):
+        if request.method == 'GET':
+                data = Profile.objects.all()
+                
+                serializer = ProfileSerializer(
+                                                data,
+                                                context={'request':request},
+                                                many=True
+                                        )
+                
+                return Response(serializer.data)
+        
+        if request.method == "POST":
+            serializer = ProfileSerializer(data=request.data)
+            
+            if not serializer.is_valid():
+                    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+            serializer.save()
+            return Response(status=status.HTTP_204_NO_CONTENT)
 
-class SignUp_view_vendor(View):
 
-    def post(self, request, *args, **kwargs):
-        #save user data
-        name=request.POST["name"]
-        email=request.POST["email"]
-        password=request.POST["password"]
-        Client.save(name,email,password)
-        return HttpResponse("Client Signup Complete")
 
-class LoginView(TemplateView):
 
-    def post(self, request, *args, **kwargs):
-        username = request.POST.get('username', False)
-        password = request.POST.get('password', False)
-        if username and password:
-            user = authenticate(request, username=username, password=password)
-            if user is not None:
-                login(request, user)
-                #check if user is client of vendor
-                if Vendor.objects.filter(user=user).get():
-                    return HttpResponse('Vendor Login Successfull') #return Vendor ID
-                else:
-                    return HttpResponse('Client Login Successfull') #return Client ID
-            else:
-                return HttpResponse('Error: User authentication error <a href="/login"">Try again</a>')
-        else:
-            return HttpResponse('Error: Username or password is empty <a href="/login">Try again</a>')
+
+@api_view (['PUT',  'DELETE'])
+def ProfileDetail(request, pk):
+    try:
+        user = Profile.objects.get(pk=pk)
+    except Profile.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
     
-    def get(self, request):
-        user_id = request.GET.get('user_id', False)
-        user_type = request.GET.get('user_type', False)
-        if user_type=='Vendor':
-            user_details=Vendor.objects.filter(user=User.objects.filter(id=user_id).get())
-        else:
-            user_details=Client.objects.filter(user=User.objects.filter(id=user_id).get())
+    if request.method == 'PUT':
+        serializer = ProfileSerializer(user, data= request.data , context = {'request':request})
+       
+        if serializer.is_valid():
+            serializer.save()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+    
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
-        return HttpResponse(json.dumps(user_details))
+    elif request.method == 'DELETE':
+        Profile.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+#Business
+@api_view (["GET","POST"])
+def register_business_profile_request(request):
+        if request.method == 'GET':
+                data = BusinessProfile.objects.all()
+                
+                serializer = ProfileSerializer(
+                                                data,
+                                                context={'request':request},
+                                                many=True
+                                        )
+                
+                return Response(serializer.data)
         
+        if request.method == "POST":
+            serializer = ProfileSerializer(data=request.data)
+            
+            if not serializer.is_valid():
+                    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+            serializer.save()
+            return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-class LogoutView(View, LoginRequiredMixin):
-    def get(self, request):
-        logout(request)
-        return ""
+
+
+
+@api_view (['PUT',  'DELETE'])
+def BusinessProfileDetail(request, pk):
+    try:
+        profile = BusinessProfile.objects.get(pk=pk)
+    except Profile.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    
+    if request.method == 'PUT':
+        serializer = BusinessProfileSerializer(profile, data= request.data , context = {'request':request})
+       
+        if serializer.is_valid():
+            serializer.save()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+    
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+    elif request.method == 'DELETE':
+        BusinessProfile.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+
+
+# def login_request(request):  
+#     if request.method == "POST":
+        
+#         form = AuthenticationForm(request, data=request.POST)
+#         if form.is_valid():
+#             username = form.cleaned_data.get('username')
+#             password = form.cleaned_data.get('password')
+#             user = authenticate(username=username, password=password)
+        
+#             if user is not None:
+#                     login(request, user)
+#                     messages.info(request, f"You are now logged in as {username}.")
+#                     return render(request=request, template_name="main/home.html")
+
+#             else:
+#                     messages.error(request,"Invalid username or password.")
+
+#     form = AuthenticationForm()
+#     return render(request=request, template_name="main/login.html", context={"login_form":form})
+
+# def logout_request(request):
+#     logout(request)
+#     messages.info(request, "Logged out successfully!")
+#     return redirect("main:home")
+
+# def password_reset_request(request):
+    
+#     if request.method == "POST":
+#         password_reset_form = PasswordResetForm(request.POST)
+   
+#         if password_reset_form.is_valid():
+#             data = password_reset_form.cleaned_data['email']
+#             associated_users = User.objects.filter(Q(email=data))
+      
+#             if associated_users.exists():
+      
+#                 for user in associated_users:
+#                     subject = "Password Reset Requested"
+#                     email_template_name = "main/password/password_reset_email.txt"
+#                     c = {
+# 					"email":user.email,
+# 					'domain':'127.0.0.1:8000',
+# 					'site_name': 'Website',
+# 					"uid":urlsafe_base64_encode(force_bytes(user.pk)),
+# 					"user": user,
+# 					'token': default_token_generator.make_token(user),
+# 					'protocol': 'http',
+# 					}
+#                     email = render_to_string(email_template_name, c)
+#                     try:
+#                         send_mail(subject, email, 'admin@example.com' , [user.email], fail_silently=False)
+#                     except BadHeaderError:
+#                         return HttpResponse('Invalid header found.')
+#                     return redirect ("/password_reset/done/")
+#         password_reset_form = PasswordResetForm()
+#     return render(request=request, template_name="main/password/password_reset_form.html", context={"password_reset_form":PasswordResetForm})
