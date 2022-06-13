@@ -39,16 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
-    'accounts',
-    'events',
-=======
     'corsheaders',
     'rest_framework', 
     # 'crispy_forms',
     'accounts',
 
->>>>>>> 33a604da021f6f019054d9304097308d4d08761a
 ]
 
 MIDDLEWARE = [
@@ -83,17 +78,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'backend.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
-<<<<<<< HEAD
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 DATABASES = {
  'default': {
             'ENGINE': 'djongo',
@@ -104,29 +88,6 @@ DATABASES = {
             }  
         }
 }
-
-=======
-# if os.getenv('GAE_APPLICATION', None):
-# #Add necessary configuration for using mongodb configurations            
-#        DATABASES = {
-#         'default': {
-#             'ENGINE': 'djongo',
-#             'NAME': 'your-db-name',
-#             'ENFORCE_SCHEMA': False,
-#             'CLIENT': {
-#                 'host': 'mongodb+srv://<username>:<password>@<atlas cluster>/<myFirstDatabase>?retryWrites=true&w=majority'
-#             }  
-#         }
-# }
-# else:
-DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.sqlite3',
-                'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-            }
-        }
->>>>>>> 33a604da021f6f019054d9304097308d4d08761a
-
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
@@ -164,11 +125,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-<<<<<<< HEAD
 
 import django_heroku
 django_heroku.settings(locals())
-=======
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 AUTHENTICATION_BACKENDS = (    "django.contrib.auth.backends.ModelBackend",    "allauth.account.auth_backends.AuthenticationBackend",
@@ -185,4 +146,3 @@ REST_FRAMEWORK = {
 'DATETIME_FORMAT': "%m/%d/%Y %I:%M%P",    'DEFAULT_AUTHENTICATION_CLASSES': [        'rest_framework.authentication.TokenAuthentication',    
 ],
 }
->>>>>>> 33a604da021f6f019054d9304097308d4d08761a
