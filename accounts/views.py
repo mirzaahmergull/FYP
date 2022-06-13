@@ -100,6 +100,18 @@ def BusinessProfileDetail(request, pk):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
+@api_view(["GET", "POST"])
+def VendorImageView(request):
+    if request.method == 'GET':
+        data = VendorImage.objects.all()
+
+    serializer = ProfileSerializer(
+        data,
+        context={'request': request},
+        many=True
+    )
+
+    return Response(serializer.data)
 
 
 # def login_request(request):  
