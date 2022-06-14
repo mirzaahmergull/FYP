@@ -1,7 +1,7 @@
-asgiref @ file:///tmp/build/80754af9/asgiref_1625643473416/work
+asgiref==3.5.2
 certifi==2022.5.18.1
 dj-database-url==0.5.0
-Django @ file:///tmp/build/80754af9/django_1625585912945/work
+Django==4.0.5
 django-cors-headers==3.13.0
 django-heroku==0.3.1
 djangorestframework==3.13.1
@@ -9,10 +9,10 @@ djongo==1.3.6
 dnspython==2.2.1
 gunicorn==20.1.0
 Pillow==9.1.1
-psycopg2 @ file:///C:/ci/psycopg2_1612298803839/work
+psycopg==2.9.3
 pymongo==3.12.3
 pytz==2021.3
 sqlparse==0.2.4
-typing_extensions @ file:///opt/conda/conda-bld/typing_extensions_1647553014482/work
+typing_extensions==4.2.0
 whitenoise==6.1.0
 wincertstore==0.2
