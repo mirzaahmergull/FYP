@@ -6,7 +6,7 @@ from django.dispatch import receiver
 
 #Basic
 class Profile(models.Model):#simple user
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    ##user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=100, blank=True)
     last_name = models.CharField(max_length=100, blank=True)
     email = models.EmailField(max_length=150)
@@ -24,7 +24,7 @@ def update_profile_signal(sender, instance, created, **kwargs):
 #Business
 class BusinessProfile(models.Model):
     vendor_type = models.CharField(max_length=100, blank=True) 
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    ##user = models.OneToOneField(User, on_delete=models.CASCADE)
     business_name = models.CharField(max_length=100, blank=True)
     full_name = models.CharField(max_length=100, blank=True)
     email = models.EmailField(max_length=150)

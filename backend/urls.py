@@ -19,9 +19,11 @@ from django.urls import path,re_path
 from accounts import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path(r'^api/profile/$', views.register_profile_request),
+    re_path(r'^api/login/$', views.login),
+    re_path(r'^api/signup/$', views.signup),
+    re_path(r'^api/profile/$', views.profile_login_signup),
     re_path(r'^api/profile/([0-9])$', views.ProfileDetail),
-    re_path(r'^api/businessprofile/$', views.register_business_profile_request),
+    re_path(r'^api/businessprofile/$', views.business_login_signup),
     re_path(r'^api/businesssprofile/([0-9])$', views.BusinessProfileDetail),
     re_path(r'^api/vendorimage/$', views.VendorImageView),
    
